@@ -22,6 +22,7 @@ import KpiStrip from "./_sections/kpi-strip";
 import { CTA } from "./_sections/cta";
 import { useParallax } from "@/hooks/use-parallax";
 import { TrendingRail } from "@/app/components/TrendingRail";
+import { WebGLSection } from "@/components/WebGLSection";
 
 export default function MarketingRoute() {
   const orbRef1 = useParallax({ depth: -20 });
@@ -34,16 +35,18 @@ export default function MarketingRoute() {
         <div ref={orbRef1} className="absolute left-0 top-0 h-[600px] w-[600px] rounded-full bg-[#C397EB33] blur-[120px]" />
         <div ref={orbRef2} className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-[#4F46E533] blur-[120px]" />
       </div>
-      <AnimatedBackground />
+      <div className="pointer-events-none absolute inset-0 opacity-20">
+        <AnimatedBackground />
+      </div>
       <Navbar />
-      <LiveTicker />
-      <Hero />
-      <TrendingRail />
-      <KpiStrip />
-      <Features />
-      <HowItWorks />
-      <WalletsTokens />
-      <CTA />
+      <WebGLSection variant="ticker"><LiveTicker /></WebGLSection>
+      <WebGLSection variant="hero"><Hero /></WebGLSection>
+      <WebGLSection variant="markets"><TrendingRail /></WebGLSection>
+      <WebGLSection variant="kpi"><KpiStrip /></WebGLSection>
+      <WebGLSection variant="features"><Features /></WebGLSection>
+      <WebGLSection variant="how"><HowItWorks /></WebGLSection>
+      <WebGLSection variant="wallets"><WalletsTokens /></WebGLSection>
+      <WebGLSection variant="cta"><CTA /></WebGLSection>
       <Footer />
     </div>
   );
