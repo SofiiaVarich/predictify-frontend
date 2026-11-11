@@ -1,3 +1,4 @@
+
 ## “What Changed?” Diff View Design
 
 Figma:
